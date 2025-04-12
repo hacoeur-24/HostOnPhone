@@ -18,9 +18,9 @@ const ora_1 = __importDefault(require("ora"));
 const clipboardy_1 = __importDefault(require("clipboardy"));
 const program = new commander_1.Command();
 program
-    .name("hostonphone")
+    .name("phonehost")
     .description("Preview your localhost site on your phone via LAN or tunnel.")
-    .version("1.0")
+    .version("1.0.1")
     .option("-p, --port <number>", "Port to expose")
     .option("-t, --tunnel", "Enable tunnel access over the internet")
     .option("--provider <type>", "Tunnel provider: localtunnel (default) or cloudflare")
@@ -171,5 +171,5 @@ let port = options.port;
 if (os_1.default.userInfo().username && process.env.npm_config_user_agent) {
     console.log(chalk_1.default.magenta("\n💡 Tip: To avoid entering a password every time, you can install Cloudflare Tunnel:\n" +
         "👉 npm install -g cloudflared\n" +
-        "👉 Then run: hostonphone --tunnel --provider cloudflare"));
+        "👉 Then run: phonehost --tunnel --provider cloudflare"));
 }
