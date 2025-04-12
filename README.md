@@ -60,7 +60,7 @@ or
 hostonphone -p 3000
 ```
 
-> Note: If you don't specify the port it will use 3000 by default
+> Note: If you don't specify the port it will search for an active port from theses : [3000, 5173, 8080, 4321, 4200].
 
 You’ll get output like:
 
