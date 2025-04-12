@@ -53,11 +53,13 @@ npx hostonphone --port 3000
 Make sure your local dev server is running (like `npm run dev` for Next.js) on the port you want (e.g. `3000`), then:
 
 ```bash
-npm run start -- --port 3000
+hostonphone --port 3000
 ```
 ```bash
-npm run start -- -p 3000
+npm run start -p 3000
 ```
+
+> Note: If you don't specify the port it will use 3000 by default
 
 You’ll get output like:
 
@@ -81,11 +83,11 @@ This option works out-of-the-box — **no additional installation required**.
 #### 🛠️ To use it:
 
 ```bash
-npx hostonphone --port 3000 --tunnel
+hostonphone --port 3000 --tunnel
 ```
 or
 ```bash
-npx hostonphone --port 3000 -t
+hostonphone --port 3000 --t
 ```
 
 You’ll get a public link like:
@@ -107,7 +109,7 @@ To avoid this prompt, you can switch to **Cloudflare Tunnel**, which provides a 
 1. **Install `cloudflared`** (only once):
 
 ```bash
-npm install cloudflare/cloudflare/cloudflared
+npm install -g cloudflared
 ```
 
 > Or download manually from: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation
@@ -115,12 +117,13 @@ npm install cloudflare/cloudflare/cloudflared
 2. **Use HostOnPhone with Cloudflare:**
 
 ```bash
-npx hostonphone --tunnel --provider cloudflare
+hostonphone --port 3000 --tunnel --provider cloudflare
 ```
 
 You’ll get a public URL like `https://your-site.trycloudflare.com` without any password screen.
 
 > 💡 If `cloudflared` is not installed, the CLI will let you know and give you the install command.
+> ⚠️ Note: Cloudflare can be unstable sometime
 
 ---
 
