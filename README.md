@@ -11,7 +11,7 @@ Your localhost is now on your phone — effortlessly.
 - 🔍 Detects your machine’s local IP automatically
 - 📱 Generates a QR code you can scan with your phone
 - ⚠️ Warns you if the port isn't running anything
-- 🌐 Optional remote tunneling for public or restricted Wi-Fi (coming soon!)
+- 🌐 Remote tunneling for public or restricted Wi-Fi
 - 📦 Lightweight, zero config, runs instantly
 
 ---
