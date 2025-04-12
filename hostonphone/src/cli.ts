@@ -18,15 +18,30 @@ program
   .name("hostonphone")
   .description("Preview your localhost site on your phone via LAN or tunnel.")
   .version("1.0")
-  .option("-p, --port <number>", "Port to expose (default: 3000)", "3000")
+  .option("-p, --port <number>", "Port to expose")
   .option("-t, --tunnel", "Enable tunnel access over the internet")
   .option("--provider <type>", "Tunnel provider: localtunnel (default) or cloudflare")
   .parse();
 
 const options = program.opts();
-const port = options.port;
+let port = options.port;
 
 (async () => {
+  if (!port) {
+    const commonPorts = [3000, 5173, 8080, 4321, 4200];
+    for (const testPort of commonPorts) {
+      if (await isPortAvailable(Number(testPort))) {
+        port = testPort;
+        console.log(chalk.blue(`ℹ️  No port specified. Using detected active port: ${port}`));
+        break;
+      }
+    }
+    if (!port) {
+      console.log(chalk.red("❌ No active port found on common defaults. Please start your dev server or specify a port."));
+      process.exit(1);
+    }
+  }
+
   const isAvailable = await isPortAvailable(Number(port));
   if (!isAvailable) {
     console.log(chalk.red(`⚠️  Nothing is running on localhost:${port}`));
