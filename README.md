@@ -127,14 +127,6 @@ You’ll get a public URL like `https://your-site.trycloudflare.com` without any
 
 ---
 
-## 📚 Coming Soon
-- Automatic port detection if `--port` is omitted
-- Clipboard copy support
-- CLI banners and polish
-- Optional mobile-friendly dashboard view
-
----
-
 ## 🧑‍💻 Dev Setup (For Contributors)
 
 Clone the project:
