@@ -68,9 +68,9 @@ const port = options.port;
                 align: "center",
               })
             );
-            generateQrCode(url);
             clipboard.writeSync(url);
             console.log(chalk.gray("📋 Link copied to clipboard!"));
+            generateQrCode(url);
           }
 
           if (line.toLowerCase().includes("error") || line.toLowerCase().includes("fail")) {
@@ -99,9 +99,9 @@ const port = options.port;
                 align: "center",
               })
             );
-            generateQrCode(url);
             clipboard.writeSync(url);
             console.log(chalk.gray("📋 Link copied to clipboard!"));
+            generateQrCode(url);
           }
         });
 
@@ -164,9 +164,9 @@ const port = options.port;
         align: "center",
       })
     );
-    generateQrCode(url);
     clipboard.writeSync(url);
     console.log(chalk.gray("📋 Link copied to clipboard!"));
+    generateQrCode(url);
   }
 })();
 
