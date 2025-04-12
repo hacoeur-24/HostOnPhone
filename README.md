@@ -122,7 +122,7 @@ hostonphone --port 3000 --tunnel --provider cloudflare
 
 You’ll get a public URL like `https://your-site.trycloudflare.com` without any password screen.
 
-> 💡 If `cloudflared` is not installed, the CLI will let you know and give you the install command.
+> 💡 If `cloudflared` is not installed, the CLI will let you know and give you the install command.\n
 > ⚠️ Note: Cloudflare can be unstable sometime
 
 ---
