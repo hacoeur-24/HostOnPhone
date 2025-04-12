@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
+    "@types/qrcode-terminal": "^0.12.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
