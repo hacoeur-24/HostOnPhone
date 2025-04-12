@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import chalk from "chalk";
+import boxen from "boxen";
 const localtunnel = require("localtunnel");
 import { getLocalIp } from "./utils";
 import { generateQrCode } from "./qr";
@@ -59,7 +60,14 @@ const port = options.port;
             urlFound = true;
             spinner.succeed("Cloudflare Tunnel created!");
             console.log(chalk.green("🌍 Publicly accessible URL created (Cloudflare):"));
-            console.log(chalk.cyan(`🔗 ${url}\n`));
+            console.log(
+              boxen(`🔗 ${url}`, {
+                padding: 1,
+                borderStyle: "round",
+                borderColor: "cyan",
+                align: "center",
+              })
+            );
             generateQrCode(url);
             clipboard.writeSync(url);
             console.log(chalk.gray("📋 Link copied to clipboard!"));
@@ -83,7 +91,14 @@ const port = options.port;
             urlFound = true;
             spinner.succeed("Cloudflare Tunnel created!");
             console.log(chalk.green("🌍 Publicly accessible URL created (Cloudflare):"));
-            console.log(chalk.cyan(`🔗 ${url}\n`));
+            console.log(
+              boxen(`🔗 ${url}`, {
+                padding: 1,
+                borderStyle: "round",
+                borderColor: "cyan",
+                align: "center",
+              })
+            );
             generateQrCode(url);
             clipboard.writeSync(url);
             console.log(chalk.gray("📋 Link copied to clipboard!"));
@@ -113,12 +128,20 @@ const port = options.port;
 
       try {
         const publicIp = (await axios.get("https://api.ipify.org?format=text")).data;
-        console.log(chalk.yellow(`🔐 Tunnel Password (your public IP): ${publicIp}`));
+        console.log(chalk.blue(`🔐 Tunnel Password (your public IP): ${publicIp}`));
       } catch {
         console.log(chalk.red("⚠️  Failed to retrieve public IP for tunnel password."));
       }
 
       console.log(chalk.green("🌍 Publicly accessible URL created (LocalTunnel):"));
+      console.log(
+        boxen(`🔗 ${url}`, {
+          padding: 1,
+          borderStyle: "round",
+          borderColor: "cyan",
+          align: "center",
+        })
+      );
       clipboard.writeSync(url);
       console.log(chalk.gray("📋 Link copied to clipboard!"));
     }
@@ -133,7 +156,14 @@ const port = options.port;
 
     url = `http://${ip}:${port}`;
     console.log(chalk.green("📱 Scan this on your phone to preview:"));
-    console.log(chalk.cyan(`🔗 ${url}\n`));
+    console.log(
+      boxen(`🔗 ${url}`, {
+        padding: 1,
+        borderStyle: "round",
+        borderColor: "cyan",
+        align: "center",
+      })
+    );
     generateQrCode(url);
     clipboard.writeSync(url);
     console.log(chalk.gray("📋 Link copied to clipboard!"));
@@ -141,7 +171,7 @@ const port = options.port;
 })();
 
 if (os.userInfo().username && process.env.npm_config_user_agent) {
-  console.log(chalk.magentaBright(
+  console.log(chalk.magenta(
     "\n💡 Tip: To avoid entering a password every time, you can install Cloudflare Tunnel:\n" +
     "👉 npm install -g cloudflared\n" +
     "👉 Then run: hostonphone --tunnel --provider cloudflare"
