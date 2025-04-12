@@ -159,6 +159,7 @@ let port = options.port;
       );
       clipboard.writeSync(url);
       console.log(chalk.gray("📋 Link copied to clipboard!"));
+      generateQrCode(url);
     }
   }
 
