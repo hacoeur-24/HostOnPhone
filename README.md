@@ -40,7 +40,7 @@ Install it globally via NPM:
 npm install -g hostonphone
 ```
 
-Or use it directly via `npx` (no install needed):
+Or use it directly via `npx`:
 
 ```bash
 npx hostonphone --port 3000
