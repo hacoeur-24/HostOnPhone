@@ -55,8 +55,9 @@ Make sure your local dev server is running (like `npm run dev` for Next.js) on t
 ```bash
 hostonphone --port 3000
 ```
+or
 ```bash
-npm run start -p 3000
+hostonphone -p 3000
 ```
 
 > Note: If you don't specify the port it will use 3000 by default
@@ -74,7 +75,7 @@ Open your phone’s camera or a QR app — and you’ll instantly see your site 
 ---
 ## 🌩️ How to use when your devices are not on the same network or while on public network
 
-### 🔌 By default : HostOnPhone uses LocalTunnel (No Extra Install Required)
+### 🔌 By default: HostOnPhone uses LocalTunnel (No Extra Install Required)
 
 If your phone is **not on the same Wi-Fi** or you're on **public or restricted networks**, you can use HostOnPhone's built-in tunneling feature to create a public link using [localtunnel](https://theboroer.github.io/localtunnel-www/).
 
@@ -87,7 +88,7 @@ hostonphone --port 3000 --tunnel
 ```
 or
 ```bash
-hostonphone --port 3000 --t
+hostonphone -p 3000 -t
 ```
 
 You’ll get a public link like:
@@ -117,13 +118,12 @@ npm install -g cloudflared
 2. **Use HostOnPhone with Cloudflare:**
 
 ```bash
-hostonphone --port 3000 --tunnel --provider cloudflare
+hostonphone -p 3000 -t --provider cloudflare
 ```
 
 You’ll get a public URL like `https://your-site.trycloudflare.com` without any password screen.
 
 > 💡 If `cloudflared` is not installed, the CLI will let you know and give you the install command.
-> ⚠️ Note: Cloudflare can be unstable sometime
 
 ---
 
