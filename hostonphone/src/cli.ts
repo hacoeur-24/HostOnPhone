@@ -9,6 +9,7 @@ import axios from "axios";
 import { execSync, spawn } from "child_process";
 import os from "os";
 import ora from "ora";
+import clipboard from "clipboardy";
 
 const program = new Command();
 
@@ -60,6 +61,8 @@ const port = options.port;
             console.log(chalk.green("🌍 Publicly accessible URL created (Cloudflare):"));
             console.log(chalk.cyan(`🔗 ${url}\n`));
             generateQrCode(url);
+            clipboard.writeSync(url);
+            console.log(chalk.gray("📋 Link copied to clipboard!"));
           }
 
           if (line.toLowerCase().includes("error") || line.toLowerCase().includes("fail")) {
@@ -82,6 +85,8 @@ const port = options.port;
             console.log(chalk.green("🌍 Publicly accessible URL created (Cloudflare):"));
             console.log(chalk.cyan(`🔗 ${url}\n`));
             generateQrCode(url);
+            clipboard.writeSync(url);
+            console.log(chalk.gray("📋 Link copied to clipboard!"));
           }
         });
 
@@ -114,11 +119,25 @@ const port = options.port;
       }
 
       console.log(chalk.green("🌍 Publicly accessible URL created (LocalTunnel):"));
+      clipboard.writeSync(url);
+      console.log(chalk.gray("📋 Link copied to clipboard!"));
     }
   }
 
-  console.log(chalk.cyan(`🔗 ${url}\n`));
-  generateQrCode(url);
+  if (!options.tunnel) {
+    const ip = getLocalIp();
+    if (!ip) {
+      console.error(chalk.red("❌ No local network IP found."));
+      process.exit(1);
+    }
+
+    url = `http://${ip}:${port}`;
+    console.log(chalk.green("📱 Scan this on your phone to preview:"));
+    console.log(chalk.cyan(`🔗 ${url}\n`));
+    generateQrCode(url);
+    clipboard.writeSync(url);
+    console.log(chalk.gray("📋 Link copied to clipboard!"));
+  }
 })();
 
 if (os.userInfo().username && process.env.npm_config_user_agent) {
