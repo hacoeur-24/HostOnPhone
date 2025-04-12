@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from "commander";
 import chalk from "chalk";
-import boxen from "boxen";
+const boxen = require("boxen");
 const localtunnel = require("localtunnel");
 import { getLocalIp } from "./utils";
 import { generateQrCode } from "./qr";
