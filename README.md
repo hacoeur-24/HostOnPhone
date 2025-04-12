@@ -1,14 +1,14 @@
-# 📱 HostOnPhone
+# 📱 PhoneHost
 
 Your localhost is now on your phone — effortlessly.
 
-**HostOnPhone** is a simple CLI tool that lets developers preview their local development websites (like `localhost:3000`) directly on their **mobile phone**. No need for USB debugging, emulators, or clunky setups — just scan a QR code and see your site live on your phone, instantly.
+**PhoneHost** is a simple CLI tool that lets developers preview their local development websites (like `localhost:3000`) directly on their **mobile phone**. No need for USB debugging, emulators, or clunky setups — just scan a QR code and see your site live on your phone, instantly.
 
 ---
 
-## 💡 Why HostOnPhone?
+## 💡 Why PhoneHost?
 
-Responsive web development often requires testing on real mobile devices — not just Chrome DevTools. But setting up a way to preview your localhost on your phone can be annoying. **HostOnPhone** eliminates that pain with one simple CLI command.
+Responsive web development often requires testing on real mobile devices — not just Chrome DevTools. But setting up a way to preview your localhost on your phone can be annoying. **PhoneHost** eliminates that pain with one simple CLI command.
 
 Whether you're building with:
 - Next.js
@@ -37,13 +37,13 @@ This tool helps you test on real hardware in seconds.
 Install it globally via NPM:
 
 ```bash
-npm install -g hostonphone
+npm install -g phonehost
 ```
 
 Or use it directly via `npx`:
 
 ```bash
-npx hostonphone --port 3000
+npx phonehost --port 3000
 ```
 
 ---
@@ -53,11 +53,11 @@ npx hostonphone --port 3000
 Make sure your local dev server is running (like `npm run dev` for Next.js) on the port you want (e.g. `3000`), then:
 
 ```bash
-hostonphone --port 3000
+phonehost --port 3000
 ```
 or
 ```bash
-hostonphone -p 3000
+phonehost -p 3000
 ```
 
 > Note: If you don't specify the port it will search for an active port from theses : [3000, 5173, 8080, 4321, 4200].
@@ -75,20 +75,20 @@ Open your phone’s camera or a QR app — and you’ll instantly see your site 
 ---
 ## 🌩️ How to use when your devices are not on the same network or while on public network
 
-### 🔌 By default: HostOnPhone uses LocalTunnel (No Extra Install Required)
+### 🔌 By default: PhoneHost uses LocalTunnel (No Extra Install Required)
 
-If your phone is **not on the same Wi-Fi** or you're on **public or restricted networks**, you can use HostOnPhone's built-in tunneling feature to create a public link using [localtunnel](https://theboroer.github.io/localtunnel-www/).
+If your phone is **not on the same Wi-Fi** or you're on **public or restricted networks**, you can use PhoneHost's built-in tunneling feature to create a public link using [localtunnel](https://theboroer.github.io/localtunnel-www/).
 
 This option works out-of-the-box — **no additional installation required**.
 
 #### 🛠️ To use it:
 
 ```bash
-hostonphone --port 3000 --tunnel
+phonehost --port 3000 --tunnel
 ```
 or
 ```bash
-hostonphone -p 3000 -t
+phonehost -p 3000 -t
 ```
 
 You’ll get a public link like:
@@ -101,7 +101,7 @@ You’ll get a public link like:
 
 ### 🌩️ Optional: Use Cloudflare Tunnel (No Password Prompt)
 
-By default, HostOnPhone uses [localtunnel](https://theboroer.github.io/localtunnel-www/) for public access — but this may require entering your public IP as a password when accessing the link from your phone.
+By default, PhoneHost uses [localtunnel](https://theboroer.github.io/localtunnel-www/) for public access — but this may require entering your public IP as a password when accessing the link from your phone.
 
 To avoid this prompt, you can switch to **Cloudflare Tunnel**, which provides a clean and password-free experience.
 
@@ -115,10 +115,10 @@ npm install -g cloudflared
 
 > Or download manually from: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation
 
-2. **Use HostOnPhone with Cloudflare:**
+2. **Use PhoneHost with Cloudflare:**
 
 ```bash
-hostonphone -p 3000 -t --provider cloudflare
+phonehost -p 3000 -t --provider cloudflare
 ```
 
 You’ll get a public URL like `https://your-site.trycloudflare.com` without any password screen.
@@ -132,8 +132,8 @@ You’ll get a public URL like `https://your-site.trycloudflare.com` without any
 Clone the project:
 
 ```bash
-git clone https://github.com/yourusername/hostonphone.git
-cd hostonphone
+git clone https://github.com/yourusername/phonehost.git
+cd phonehost
 npm install
 ```
 
