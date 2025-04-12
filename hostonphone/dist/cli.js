@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const commander_1 = require("commander");
 const chalk_1 = __importDefault(require("chalk"));
-const boxen = require("boxen");
+const boxen_1 = __importDefault(require("boxen"));
 const localtunnel = require("localtunnel");
 const utils_1 = require("./utils");
 const qr_1 = require("./qr");
@@ -71,7 +71,7 @@ let port = options.port;
                         urlFound = true;
                         spinner.succeed("Cloudflare Tunnel created!");
                         console.log(chalk_1.default.green("🌍 Publicly accessible URL created (Cloudflare):"));
-                        console.log(boxen(`🔗 ${url}`, {
+                        console.log((0, boxen_1.default)(`🔗 ${url}`, {
                             padding: 1,
                             borderStyle: "round",
                             borderColor: "cyan",
@@ -99,7 +99,7 @@ let port = options.port;
                         urlFound = true;
                         spinner.succeed("Cloudflare Tunnel created!");
                         console.log(chalk_1.default.green("🌍 Publicly accessible URL created (Cloudflare):"));
-                        console.log(boxen(`🔗 ${url}`, {
+                        console.log((0, boxen_1.default)(`🔗 ${url}`, {
                             padding: 1,
                             borderStyle: "round",
                             borderColor: "cyan",
@@ -138,7 +138,7 @@ let port = options.port;
                 console.log(chalk_1.default.red("⚠️  Failed to retrieve public IP for tunnel password."));
             }
             console.log(chalk_1.default.green("🌍 Publicly accessible URL created (LocalTunnel):"));
-            console.log(boxen(`🔗 ${url}`, {
+            console.log((0, boxen_1.default)(`🔗 ${url}`, {
                 padding: 1,
                 borderStyle: "round",
                 borderColor: "cyan",
@@ -156,7 +156,7 @@ let port = options.port;
         }
         url = `http://${ip}:${port}`;
         console.log(chalk_1.default.green("📱 Scan this on your phone to preview:"));
-        console.log(boxen(`🔗 ${url}`, {
+        console.log((0, boxen_1.default)(`🔗 ${url}`, {
             padding: 1,
             borderStyle: "round",
             borderColor: "cyan",
