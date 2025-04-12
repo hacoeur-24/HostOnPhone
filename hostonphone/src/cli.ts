@@ -14,9 +14,9 @@ const program = new Command();
 program
   .name("hostonphone")
   .description("Preview your localhost site on your phone via LAN or tunnel.")
-  .version("1.0.0")
+  .version("1.0")
   .option("-p, --port <number>", "Port to expose (default: 3000)", "3000")
-  .option("--tunnel", "Enable tunnel access over the internet")
+  .option("-t, --tunnel", "Enable tunnel access over the internet")
   .option("--provider <type>", "Tunnel provider: localtunnel (default) or cloudflare")
   .parse();
 
