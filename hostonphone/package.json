@@ -13,16 +13,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "description": "",
   "dependencies": {
-    "chalk": "^5.4.1",
+    "chalk": "^4.1.2",
     "commander": "^13.1.0",
     "localtunnel": "^2.0.2",
+    "ora": "^8.2.0",
     "qrcode-terminal": "^0.12.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.1",
+    "@types/ora": "^3.1.0",
     "@types/qrcode-terminal": "^0.12.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
