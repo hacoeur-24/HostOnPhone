@@ -54,6 +54,34 @@ Open your phone’s camera or a QR app — and you’ll instantly see your site 
 
 ---
 
+## 🌩️ Optional: Use Cloudflare Tunnel (No Password Prompt)
+
+By default, HostOnPhone uses [localtunnel](https://theboroer.github.io/localtunnel-www/) for public access — but this may require entering your public IP as a password when accessing the link from your phone.
+
+To avoid this prompt, you can switch to **Cloudflare Tunnel**, which provides a clean and password-free experience.
+
+### 🛠️ Step-by-step:
+
+1. **Install `cloudflared`** (only once):
+
+```bash
+brew install cloudflare/cloudflare/cloudflared
+```
+
+> Or download manually from: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation
+
+2. **Use HostOnPhone with Cloudflare:**
+
+```bash
+npx hostonphone --tunnel --provider cloudflare
+```
+
+You’ll get a public URL like `https://your-site.trycloudflare.com` without any password screen.
+
+> 💡 If `cloudflared` is not installed, the CLI will let you know and give you the install command.
+
+---
+
 ## 💡 Why HostOnPhone?
 
 Responsive web development often requires testing on real mobile devices — not just Chrome DevTools. But setting up a way to preview your localhost on your phone can be annoying. **HostOnPhone** eliminates that pain with one simple CLI command.
