@@ -16,7 +16,24 @@ Whether you're building with:
 - React
 - Vue
 - Svelte
-- ...or anything that runs on `localhost`
+-- ...or anything that runs on `localhost`
+
+---
+
+## 🛠️ Supported Dev Environments
+
+PhoneHost is compatible with a wide range of development tools and frameworks. Here are some officially supported and tested environments:
+
+- ✅ Next.js
+- ✅ Vite (requires `--host` flag)
+- ✅ React (CRA)
+- ✅ Vue (Vue CLI and Vite-based)
+- ✅ Svelte and SvelteKit
+- ✅ Angular
+- ✅ Astro
+- ✅ Any tool that runs a local server on a specific port
+
+> 💡 Make sure to run your dev server with a publicly accessible host when necessary (e.g. `vite --host`) so PhoneHost can detect and forward traffic correctly. (Note that you may not need this starting with v.1.0.3).
 
 This tool helps you test on real hardware in seconds.
 
