@@ -1,19 +1,24 @@
 import http from "http";
 
-export function isPortAvailable(port: number): Promise<boolean> {
-  return new Promise((resolve) => {
-    const req = http.get({ hostname: "127.0.0.1", port, timeout: 1000 }, (res) => {
-      res.resume(); // consume response data
-      resolve(true); // success!
-    });
+export async function isPortAvailable(port: number): Promise<boolean> {
+  const hosts = ["127.0.0.1", "localhost"];
 
-    req.on("error", () => {
-      resolve(false);
-    });
+  for (const host of hosts) {
+    try {
+      const success = await new Promise<boolean>((resolve) => {
+        const req = http.get({ hostname: host, port, timeout: 1000 }, (res) => {
+          res.resume();
+          resolve(true);
+        });
+        req.on("error", () => resolve(false));
+        req.on("timeout", () => {
+          req.destroy();
+          resolve(false);
+        });
+      });
+      if (success) return true;
+    } catch { }
+  }
 
-    req.on("timeout", () => {
-      req.destroy();
-      resolve(false);
-    });
-  });
+  return false;
 }
